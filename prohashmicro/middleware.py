@@ -28,7 +28,7 @@ class BlockUninstalledModulesMiddleware:
                     self.urls_master.append(u)
 
         # Cari modul dengan status 'Uninstalled' dan blokir URL-nya
-        for m in Module.objects.filter(status='Uninstalled'):
+        for m in Module.objects.filter(status='uninstalled'):
             try:
                 urls = importlib.import_module(f"{m.name}.urls")
                 for u in urls.urlpatterns:
