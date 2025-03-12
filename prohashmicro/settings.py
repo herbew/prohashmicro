@@ -22,10 +22,12 @@ INSTALLED_LOCAL_APP = [
 	'modules', # application modules from promodules
     'products', # application products from proproducts
     'users',  # application users from proproducts
+    'promodules',
+    'prohashmicro'
+    
 ]
 
 INSTALLED_MODULE = [
-	'promodules',
 	'proproducts'
 ]
 
@@ -39,7 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.BlockUninstalledModulesMiddleware'
+    'prohashmicro.middleware.BlockUninstalledModulesMiddleware'
 ]
 
 ROOT_URLCONF = 'prohashmicro.urls'
