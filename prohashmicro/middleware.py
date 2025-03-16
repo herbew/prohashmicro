@@ -1,5 +1,4 @@
 import importlib
-from django.conf import settings
 from django.urls import resolve, Resolver404
 from django.http import HttpResponseForbidden
 from modules.models import Module
@@ -30,7 +29,7 @@ class BlockUninstalledModulesMiddleware:
                 continue
 
     def __call__(self, request):
-        # Resolve the requested URL
+        """# Resolve the requested URL
         try:
             resolved_url = resolve(request.path_info)
         except Resolver404:
@@ -43,6 +42,6 @@ class BlockUninstalledModulesMiddleware:
             if resolved_url.url_name == getattr(blocked_url, 'name', None):
                 # If URL is blocked, return a 403 Forbidden response.
                 return HttpResponseForbidden("Access to this URL is blocked.")
-
+        """
         # Proceed to the next middleware or view
         return self.get_response(request)
